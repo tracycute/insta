@@ -29,6 +29,11 @@
       <%= post.errors.full_messages_for(:keyword).join(", ") %>
     </div>
     <% end %>
+    </div>
+
+  <div>
+    <%= form.label :images, style: "display: block" %>
+    <%= form.file_field :images, multiple: true, class: "form-control" %>
   </div>
 
   <div>
