@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     get "users/password", to: "devise/passwords#new"
     get "users/sign_out", to: "devise/sessions#destroy"
   end
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+}
 
-  devise_for :users
+  resources :users, only: [:show]
 
   get 'home/about'
   get 'posts/myposts'
