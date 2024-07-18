@@ -1,5 +1,5 @@
 <div id="<%= dom_id post %>" class="text-center post-container col-6" style="margin: auto;">
- 
+
   <p>
     <%#= post.description %>
   </p>
@@ -12,17 +12,30 @@
   </p>
 
   <p>
-    <%= link_to "", post, class:"post-link", style:"z-index:" %>
+    <%#= link_to "", post, class:"post-link", style:"z-index:" %>
   </p>
+  
+  <% if user_signed_in? %>
+    <% like = current_user.likes.find_by(post: post) %>
+    <% if like.nil? %>
+      <%= button_to "Like", likes_path, params: { like: { post_id: post.id } }, method: :post %>
+    <% else %>
+      <%= button_to "Unlike", like_path(like), method: :delete %>
+    <% end %>
 
-  <% post.images.each do |image| %>
-    <%= image_tag(image, style: "max-width: 50%; height: auto; object-fit: contain;") %>
+    <p><%= post.likes.count %> Likes</p>
+
+    <% post.images.each do |image| %>
+      <%= image_tag(image, style: "max-width: 50%; height: auto; object-fit: contain;") %>
+    <% end %>
   <% end %>
+
   <p>
-     <%= post.tittle %>
+    <%= post.tittle %>
   </p>
 
 </div>
+
 <p>
-  <%= link_to post.user.email, post.user, style:"z-index" %>
+  <%= link_to post.user.email, post.user, style: "z-index" %>
 </p>
