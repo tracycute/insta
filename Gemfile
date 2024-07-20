@@ -15,7 +15,7 @@ gem "bootsnap", require: false
 
 # My Custom Gems
 gem 'devise', '~> 4.9', '>= 4.9.4'
-
+gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 end
