@@ -6,6 +6,7 @@
     margin-bottom: 20px;
     padding: 20px;
     position: relative;
+    margin: auto;
 }
 .post-link
 {
@@ -22,3 +23,36 @@
 {
     opacity: 0.3;
 }
+.post-description {
+    font-size: 16px;
+    color: #333;
+}
+  
+.post-username {
+    z-index: 1;
+    color: #000;
+    font-weight: bold;
+}
+  
+.post-link {
+    z-index: 1;
+    color: #007bff;
+}
+  
+.post-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+  
+.post-title {
+    font-size: 14px;
+    margin-top: 10px;
+}
+  
+.post-likes {
+    font-size: 14px;
+    margin-top: 5px;
+ }
+  

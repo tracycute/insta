@@ -1,21 +1,16 @@
-<div id="<%= dom_id post %>" class="text-center post-container col-6" style="margin: auto;">
-
+<div id="<%= dom_id post %>" class="post-container col-4">
   <p>
-    <%#= post.description %>
+    <%= link_to post.user.username, post.user, class: "post-username" %>
   </p>
 
   <p>
-    <%#= post.keyword %>
-  </p>
-
-  <p>
-  </p>
-
-  <p>
-    <%#= link_to "", post, class:"post-link", style:"z-index:" %>
+    <%= link_to "", post, class: "post-link" %>
   </p>
   
   <% if user_signed_in? %>
+    <% post.images.each do |image| %>
+      <%= image_tag(image, class: "post-image") %>
+    <% end %>
     <% like = current_user.likes.find_by(post: post) %>
     <% if like.nil? %>
       <%= button_to "Like", likes_path, params: { like: { post_id: post.id } }, method: :post %>
@@ -23,19 +18,14 @@
       <%= button_to "Unlike", like_path(like), method: :delete %>
     <% end %>
 
-    <p><%= post.likes.count %> Likes</p>
-
-    <% post.images.each do |image| %>
-      <%= image_tag(image, style: "max-width: 50%; height: auto; object-fit: contain;") %>
-    <% end %>
+    <p class="post-likes"><%= post.likes.count %> Likes</p>
   <% end %>
 
-  <p>
-    <%= post.tittle %>
-  </p>
+  <div>
+    <%= link_to post.user.username, post.user, class: "post-username" %>
+    <%= post.description %>
+    <p style="color: #007bff;">#<%= post.keyword %>
+    </p>
+  </div>
 
 </div>
-
-<p>
-  <%= link_to post.user.email, post.user, style: "z-index" %>
-</p>

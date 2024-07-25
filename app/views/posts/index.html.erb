@@ -5,14 +5,18 @@
     <%= button_to "Accept", accept_path(request.followerable) %>
     <%= button_to "Decline", decline_path(request.followerable) %>
   <% end %>
+  <div style="margin-left:20px;">
   Followers
   <% current_user.followers.each do |follower| %>
     <p> <b> <%= link_to follower.email, follower %> </b> </p>
   <% end %>
+  </div>
+  <div style="margin-left:20px;">
   Following
   <% current_user.following.each do |following| %>
     <p> <%= link_to following.email, following %> </p>
   <% end %>
+  </div>
 <% end %>
 <p style="color: green"><%= notice %></p>
 <div id="posts" class="text-center">

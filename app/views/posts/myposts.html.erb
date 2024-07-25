@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag('post')  %>
 <p style="color: green"><%= notice %></p>
-<div id="posts" class="text-center">
+<div id="posts">
   <% @posts.each do |post| %>
     <% if post.user_id == current_user.id %>
       <%= render post %>

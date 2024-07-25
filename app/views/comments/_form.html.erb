@@ -11,9 +11,12 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :text, style: "display: block" %>
-    <%= form.text_field :text %>
+  <div class="post-container col-4 " style="margin-top:20px;">
+    <%= form.label :Comment, style: "display: block; font-weight:bold" %>
+    <%= form.text_field :text, style:"width:100%"%>
+    <div style='margin: auto; width:50%; margin-top: 12px;'>
+    <%= form.submit %>
+    </div>
   </div>
 
   <div>
@@ -24,7 +27,5 @@
     <%= form.text_field :post_id, type: "hidden" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  
 <% end %>
